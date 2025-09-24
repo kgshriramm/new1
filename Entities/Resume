@@ -1,0 +1,108 @@
+{
+  "name": "Resume",
+  "type": "object",
+  "properties": {
+    "candidate_name": {
+      "type": "string",
+      "description": "Name of the candidate"
+    },
+    "email": {
+      "type": "string",
+      "description": "Candidate email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Candidate phone number"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL to the uploaded resume file"
+    },
+    "extracted_text": {
+      "type": "string",
+      "description": "Extracted text content from the resume"
+    },
+    "extracted_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Skills identified in the resume"
+    },
+    "experience_years": {
+      "type": "number",
+      "description": "Years of experience"
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degree": {
+            "type": "string"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "year": {
+            "type": "string"
+          },
+          "gpa": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Educational background"
+    },
+    "work_experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Work experience entries"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "impact": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Notable projects"
+    }
+  },
+  "required": [
+    "candidate_name",
+    "file_url",
+    "extracted_text"
+  ]
+}
