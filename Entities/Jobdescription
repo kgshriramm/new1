@@ -1,0 +1,64 @@
+{
+  "name": "JobDescription",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Job title"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full job description text"
+    },
+    "required_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of required hard skills"
+    },
+    "preferred_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of preferred skills"
+    },
+    "experience_level": {
+      "type": "string",
+      "enum": [
+        "entry",
+        "mid",
+        "senior",
+        "executive"
+      ],
+      "description": "Required experience level"
+    },
+    "department": {
+      "type": "string",
+      "description": "Department or team"
+    },
+    "location": {
+      "type": "string",
+      "description": "Job location"
+    },
+    "salary_range": {
+      "type": "string",
+      "description": "Salary range if specified"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this job posting is active"
+    }
+  },
+  "required": [
+    "title",
+    "company",
+    "description"
+  ]
+}

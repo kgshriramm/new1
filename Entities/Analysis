@@ -1,0 +1,158 @@
+{
+  "name": "Analysis",
+  "type": "object",
+  "properties": {
+    "resume_id": {
+      "type": "string",
+      "description": "ID of the analyzed resume"
+    },
+    "job_description_id": {
+      "type": "string",
+      "description": "ID of the job description"
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Overall relevance score (0-100)"
+    },
+    "hard_skills_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Hard skills match score"
+    },
+    "semantic_fit_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Semantic fit and experience relevance score"
+    },
+    "bias_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Potential bias indicators (higher = more bias detected)"
+    },
+    "matched_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Skills that match the job requirements"
+    },
+    "missing_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Required skills not found in resume"
+    },
+    "inferred_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Skills inferred from experience descriptions"
+    },
+    "experience_relevance": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number"
+        },
+        "reasoning": {
+          "type": "string"
+        }
+      },
+      "description": "Analysis of work experience relevance"
+    },
+    "education_fit": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number"
+        },
+        "reasoning": {
+          "type": "string"
+        }
+      },
+      "description": "Analysis of educational background fit"
+    },
+    "projects_impact": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number"
+        },
+        "reasoning": {
+          "type": "string"
+        }
+      },
+      "description": "Analysis of project relevance and impact"
+    },
+    "bias_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        }
+      },
+      "description": "Detected potential bias indicators"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Recommendations for candidate improvement"
+    },
+    "detailed_analysis": {
+      "type": "string",
+      "description": "Detailed analysis report"
+    },
+    "relevance_heatmap_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "snippet": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "reasoning": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Granular data for heatmap visualization"
+    },
+    "debiased_text": {
+      "type": "string",
+      "description": "Resume text with biasing information redacted"
+    }
+  },
+  "required": [
+    "resume_id",
+    "job_description_id",
+    "overall_score"
+  ]
+}
